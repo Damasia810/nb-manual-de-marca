@@ -1,0 +1,6 @@
+.DS_Store
+canva-paginas/
+*.pdf
+export-canva.mjs
+export-canva.py
+export-pdf.mjs

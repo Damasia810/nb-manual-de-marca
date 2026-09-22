@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>NB Developments — Manual de Marca · Versión 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F1E8;--bg2:#E9E3D7;--fg:#2F3730;--tx:#232722;--mut:#6D716B;--sf:#CFC8BA;
+  --c:#A77945;--cover:#F8F5EE;--cover-sub:#D8D4CA;
+  --display:'Archivo',Arial,sans-serif;--body:'Source Sans 3',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.pg{padding:88px 24px;background:var(--bg)}
+.pg.alt{background:var(--bg2)}
+.in{max-width:1080px;margin:0 auto}
+.meta{display:flex;justify-content:space-between;gap:16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:56px}
+h1,h2,h3,h4,p,ul,ol,dl,table{margin-top:0}
+h2{font-family:var(--display);font-size:clamp(30px,4.2vw,44px);line-height:1.15;font-weight:600;letter-spacing:-.02em;color:var(--fg);margin-bottom:20px}
+h3{font-family:var(--display);font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.02em;color:var(--fg);margin-bottom:10px}
+h4{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:40px;margin-bottom:16px}
+p{max-width:none;margin-bottom:22px}
+.obj{font-size:18px;line-height:1.6;margin-bottom:48px}
+.obj b{color:var(--fg);font-weight:700}
+.g2,.g3,.g4,.g5{display:grid;gap:24px;margin-bottom:32px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:860px){.g3,.g4,.g5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+.stage{display:flex;align-items:center;justify-content:center;min-height:220px;padding:32px;border:1px solid var(--sf);overflow:hidden}
+.s-w{background:var(--cover);color:var(--fg)}.s-o{background:var(--bg2);color:var(--fg)}.s-b{background:var(--fg);color:var(--cover)}
+.cap{font-size:13px;line-height:1.5;color:var(--mut);font-weight:500;margin-top:10px}
+.cap b{color:var(--fg)}
+.l{padding-left:1.1em;margin-bottom:16px}.l li{margin-bottom:6px}
+.ok,.no{list-style:none;padding:0;margin-bottom:16px}.ok li,.no li{margin-bottom:6px;padding-left:1.5em;position:relative}
+.ok li:before{content:"✓";position:absolute;left:0;font-weight:700;color:var(--fg)}
+.no li:before{content:"✕";position:absolute;left:0;font-weight:700;color:var(--mut)}
+.spec{background:var(--bg2);padding:28px 32px;border:1px solid var(--sf);margin-top:48px}
+.alt .spec{background:var(--bg)}
+.spec h4{margin-top:0}
+.sp{display:grid;grid-template-columns:200px 1fr;gap:10px 24px;font-size:14px;line-height:1.55;margin:0}
+.sp dt{font-weight:700;color:var(--fg)}.sp dd{margin:0}
+@media(max-width:640px){.sp{grid-template-columns:1fr;gap:2px}.sp dd{margin-bottom:10px}}
+.tbw{overflow-x:auto;margin-bottom:24px}
+.tb{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5;min-width:560px}
+.tb th{background:var(--sf);color:var(--fg);text-align:left;font-weight:700;padding:12px 16px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.tb td{padding:12px 16px;vertical-align:top;background:var(--bg);border-bottom:1px solid var(--sf)}
+.tb tr:nth-child(even) td{background:var(--bg2)}
+.alt .tb td{background:var(--bg2)}.alt .tb tr:nth-child(even) td{background:var(--bg)}
+.tb td:first-child{font-weight:600;color:var(--fg)}
+.mk{display:block;height:2.6em;width:auto;aspect-ratio:120/100}
+.lh{display:inline-flex;align-items:center;gap:1.3em;font-family:var(--display);font-size:var(--fs,14px);font-weight:600;letter-spacing:.14em;white-space:nowrap;line-height:1}
+.lv{display:inline-flex;flex-direction:column;align-items:center;gap:1.4em;font-family:var(--display);font-size:var(--fs,14px);font-weight:600;letter-spacing:.14em;text-indent:.16em;white-space:nowrap;line-height:1}
+.lv .mk{height:4em}
+.sw .c{height:150px;padding:16px;display:flex;align-items:flex-end;font-weight:700;border:1px solid rgba(47,55,48,.10)}
+.sw .t{padding-top:12px;font-size:13px;line-height:1.6}.sw .t b{color:var(--fg)}
+.btn{display:inline-block;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:16px 28px;border:0;text-decoration:none}
+.btn.p{background:var(--fg);color:var(--cover)}.btn.a{background:var(--c);color:#1F251F}
+.cover{background:var(--fg);color:var(--cover);padding:56px 24px;min-height:100vh;display:flex}
+.cover .in{width:100%;display:flex;flex-direction:column;justify-content:space-between;gap:64px}
+.cover h1{font-family:var(--display);font-size:clamp(44px,8vw,96px);line-height:1.02;font-weight:600;letter-spacing:-.03em;margin-bottom:24px}
+.cover .e{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin-bottom:20px}
+.idx{columns:2;column-gap:48px;font-size:14px;color:var(--cover-sub);list-style:none;padding:0}
+.idx li{break-inside:avoid;padding:5px 0}.idx a{text-decoration:none}.idx a:hover{text-decoration:underline}
+.idx i{font-style:normal;color:var(--c);font-weight:700;display:inline-block;width:2.4em}
+@media(max-width:560px){.idx{columns:1}}
+.cq{container-type:inline-size}
+.ph{background:#CFC8BA;color:#6D716B;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:500}
+.step{font-family:var(--display);font-size:44px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums;margin-bottom:10px}
+.bar{display:flex;height:64px;overflow:hidden;margin-bottom:8px;font-size:13px;font-weight:700}
+.bar div{display:flex;align-items:center;padding-left:14px}
+.sig{background:var(--cover);color:var(--tx);padding:32px;border:1px solid var(--sf);font:400 13px/1.55 var(--body)}
+.verbar{position:sticky;top:0;z-index:40;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 24px;background:var(--fg);border-bottom:1px solid rgba(167,121,69,.4)}
+.verbar .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.verbs{display:flex;gap:8px}
+.verb{display:inline-flex;align-items:center;justify-content:center;min-width:124px;padding:11px 18px;border:1.5px solid var(--c);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--cover);background:transparent}
+.verb.on{background:var(--c);color:#1F251F}
+.verb:hover{background:var(--cover);color:var(--fg);border-color:var(--cover)}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{overflow:visible}
+  .cover{break-after:page;min-height:0;height:auto;padding:28px 32px}
+  .cover .in{min-height:170mm;gap:24px}
+  .pg{break-before:auto;break-inside:auto;padding:28px 32px}
+  .in{max-width:none}
+  .idx{columns:3}
+  .stage{min-height:120px!important;padding:16px}
+  .stage svg{max-height:90px!important;width:auto}
+  h2,.obj,.meta,.spec,.tbw,.cq,.sig,.stage,.sw,.bar,.g2,.g3,.g4,.g5,tr{break-inside:avoid;page-break-inside:avoid}
+  .verbar{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="verbar" aria-label="Cambiar de versión">
+  <span class="lbl">Cambiar de versión</span>
+  <div class="verbs">
+    <a class="verb" href="manual-de-marca-v2.html">Versión 1</a>
+    <a class="verb on" href="manual-terraform.html">Versión 2</a>
+    <a class="verb" href="manual-latitude.html">Versión 3</a>
+  </div>
+</nav>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="nb" viewBox="0 0 120 100">
+    <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M12 90V10L55 90V10"/>
+      <path d="M55 10H82Q104 10 104 31Q104 50 82 50H55"/>
+      <path d="M55 50H84Q108 50 108 71Q108 90 84 90H55"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- 01 PORTADA -->
+<header class="cover" id="p01">
+<div class="in">
+  <span class="lh" style="--fs:16px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span>
+  <div>
+    <div class="e">Manual de Marca · Versión 2 · Septiembre 2026</div>
+    <h1>Manual<br>de marca</h1>
+    <p style="font-size:20px;line-height:1.5;color:var(--cover-sub);max-width:none;margin-bottom:0">Logo, color, tipografía, fotografía y voz para una compañía de inversión y desarrollo inmobiliario en Florida.</p>
+  </div>
+  <ol class="idx">
+    <li><i>01</i><a href="#p01">Portada e índice</a></li>
+    <li><i>02</i><a href="#p02">Diagnóstico y punto de partida</a></li>
+    <li><i>03</i><a href="#p03">Plataforma de marca</a></li>
+    <li><i>04</i><a href="#p04">Isotipo NB</a></li>
+    <li><i>05</i><a href="#p05">Logo completo</a></li>
+    <li><i>06</i><a href="#p06">Versiones del logo</a></li>
+    <li><i>07</i><a href="#p07">Usos incorrectos</a></li>
+    <li><i>08</i><a href="#p08">Paleta cromática</a></li>
+    <li><i>09</i><a href="#p09">Proporción y fondos</a></li>
+    <li><i>10</i><a href="#p10">Tipografía</a></li>
+    <li><i>11</i><a href="#p11">Fotografía</a></li>
+    <li><i>12</i><a href="#p12">Website</a></li>
+    <li><i>13</i><a href="#p13">Tarjeta personal y firma de email</a></li>
+    <li><i>14</i><a href="#p14">Tono verbal</a></li>
+    <li><i>15</i><a href="#p15">Posicionamiento, taglines y textos modelo</a></li>
+  </ol>
+</div>
+</header>
+
+<!-- 02 DIAGNÓSTICO -->
+<section class="pg" id="p02"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>02 / 15</span></div>
+  <h2>Diagnóstico y punto de partida</h2>
+  <p class="obj"><b>Objetivo.</b> Resumir lo que comunica hoy nbdevelopments.com y fijar las decisiones que el nuevo sistema toma frente a ello.</p>
+
+  <div>
+    <h3>Qué hace la compañía</h3>
+    <p>NB Developments es una compañía de inversión y desarrollo inmobiliario con operaciones en Florida, Estados Unidos. Identifica tierras con potencial, gestiona zonificación y permisos, construye y comercializa viviendas unifamiliares y multifamiliares.</p>
+    <p>Sus dos unidades de negocio publicadas son <b style="color:var(--fg)">Desarrollos</b> y <b style="color:var(--fg)">Tierra</b>. Desarrollos concentra la ejecución de proyectos residenciales y de uso mixto. Tierra se centra en la adquisición y la gestión de permisos sobre terrenos con potencial. La dirección operativa figura en Miramar, FL.</p>
+  </div>
+
+  <h4>Modelo de negocio publicado, comunicado sin íconos</h4>
+  <div class="g3" style="margin-bottom:40px">
+    <div><div class="step">01</div><h3>Nuevo proyecto</h3><p class="cap" style="margin-top:0">Definición del producto según el mercado objetivo.</p></div>
+    <div><div class="step">02</div><h3>Suscripción de inversores</h3><p class="cap" style="margin-top:0">Inversores y participantes se incorporan al proyecto.</p></div>
+    <div><div class="step">03</div><h3>Compra del terreno</h3><p class="cap" style="margin-top:0">Adquisición de la propiedad y gestión de permisos.</p></div>
+    <div><div class="step">04</div><h3>Ejecución de las obras</h3><p class="cap" style="margin-top:0">Construcción y gestión de obra.</p></div>
+    <div><div class="step">05</div><h3>Comercialización</h3><p class="cap" style="margin-top:0">Venta o alquiler.</p></div>
+    <div><div class="step">06</div><h3>Distribución de renta y capital</h3><p class="cap" style="margin-top:0">Resultado para los inversores.</p></div>
+  </div>
+
+  <h4>Observaciones del sitio actual y decisión del nuevo sistema</h4>
+  <div class="tbw"><table class="tb">
+    <tr><th style="width:38%">Observación</th><th>Decisión en este manual</th></tr>
+    <tr><td>Pictogramas genéricos (letrero, edificio, gráfico) y un logo previo cuyo archivo se llama “LOGO CASA VERDE”.</td><td>Sin íconos. Isotipo NB propio y numeración tipográfica para procesos.</td></tr>
+    <tr><td>Fotografía de banco de imágenes (archivos “shutterstock”).</td><td>Imágenes reales de proyectos, obras y terrenos. Ver página 11.</td></tr>
+    <tr><td>Titulares en mayúsculas de gran tamaño; mezcla de voseo con frases como “proyectos únicos” y “los más altos estándares”.</td><td>Voz institucional, precisa y sin superlativos. Ver página 14.</td></tr>
+    <tr><td>Descripción del sitio genérica (“productos y experiencias únicas”) y restos de tienda online (“carrito”).</td><td>Descripción basada en el posicionamiento. Retirar vocabulario de retail.</td></tr>
+    <tr><td>Errata visible: “TERRERO”.</td><td>Corregir a “TERRENO” y sumar revisión editorial a la checklist de publicación.</td></tr>
+  </table></div>
+</div></section>
+
+<!-- 03 PLATAFORMA -->
+<section class="pg alt" id="p03"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>03 / 15</span></div>
+  <h2>Plataforma de marca</h2>
+  <div class="tbw"><table class="tb">
+    <tr><th>Atributo</th><th>Se ve como</th><th>Se dice como</th></tr>
+    <tr><td>Confiabilidad</td><td>Mineral Olive dominante y contraste alto</td><td>Cifras, plazos y responsables nombrados</td></tr>
+    <tr><td>Solidez</td><td>Geometría rectilínea, márgenes amplios</td><td>Afirmaciones concretas, sin adjetivos vacíos</td></tr>
+    <tr><td>Profesionalismo</td><td>Jerarquía tipográfica estricta</td><td>Vocabulario técnico correcto</td></tr>
+    <tr><td>Transparencia</td><td>Fondos claros y tablas legibles</td><td>Supuestos y riesgos explícitos</td></tr>
+    <tr><td>Experiencia</td><td>Fotografía de obra y terreno reales</td><td>Trayectoria contada con hechos</td></tr>
+    <tr><td>Simplicidad</td><td>Un par tipográfico, un color de acento</td><td>Frases cortas, una idea por párrafo</td></tr>
+    <tr><td>Visión de largo plazo</td><td>Espacio en blanco, sin tendencias visuales</td><td>Horizontes y ciclos de proyecto a la vista</td></tr>
+  </table></div>
+  <div class="spec"><h4>Principio rector</h4><p style="margin:0;font-size:14px">La marca funciona con cinco recursos: <b style="color:var(--fg)">logo, tipografía, color, fotografía y espacio en blanco.</b> Cualquier elemento adicional (marcos, líneas, patrones, íconos, ondas) queda fuera del sistema.</p></div>
+</div></section>
+
+<!-- 04 ISOTIPO -->
+<section class="pg" id="p04"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>04 / 15</span></div>
+  <h2>Isotipo NB</h2>
+  <p class="obj"><b>Objetivo.</b> Presentar el símbolo, su lógica de construcción y sus usos independientes.</p>
+  <div class="g2">
+    <div>
+      <div class="stage s-o" style="min-height:340px;color:#2F3730"><svg viewBox="0 0 120 100" style="height:220px;width:auto" aria-label="Isotipo NB"><use href="#nb"/></svg></div>
+      <p class="cap"><b>Isotipo principal.</b> Mineral Olive sobre base o secondary.</p>
+    </div>
+    <div>
+      <div class="stage s-w" style="min-height:340px">
+        <svg viewBox="0 0 120 100" style="height:240px;width:auto" aria-label="Construcción del isotipo">
+          <g style="color:#2F3730"><use href="#nb"/></g>
+          <g stroke="#A77945" stroke-width=".35" opacity=".9">
+            <path d="M12 0V100M24 0V100M36 0V100M48 0V100M60 0V100M72 0V100M84 0V100M96 0V100M108 0V100"/>
+            <path d="M0 10H120M0 20H120M0 30H120M0 40H120M0 50H120M0 60H120M0 70H120M0 80H120M0 90H120"/>
+          </g>
+        </svg>
+      </div>
+      <p class="cap"><b>Construcción.</b> Retícula modular de 10 unidades. Guía técnica, no forma parte de la marca.</p>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="stage s-b" style="min-height:140px"><svg viewBox="0 0 120 100" style="height:64px;width:auto"><use href="#nb"/></svg></div>
+    <div class="stage s-w" style="min-height:140px"><svg viewBox="0 0 120 100" style="height:48px;width:auto"><use href="#nb"/></svg></div>
+    <div class="stage s-o" style="min-height:140px;gap:24px"><svg viewBox="0 0 120 100" style="height:24px;width:auto"><use href="#nb"/></svg><svg viewBox="0 0 120 100" style="height:16px;width:auto"><use href="#nb"/></svg></div>
+    <div class="stage s-o" style="min-height:140px"><div style="width:88px;height:88px;border-radius:50%;background:#2F3730;color:#F8F5EE;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 120 100" style="height:34px;width:auto"><use href="#nb"/></svg></div></div>
+  </div>
+  <p class="cap" style="margin-top:-12px">Negativo, escalas de 48, 24 y 16 px, y versión circular (isotipo marfil sobre Mineral Olive).</p>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Módulo</dt><dd>1 módulo (m) = grosor uniforme del trazo. Trazos de 10 unidades sobre una caja de 120 × 100. Terminales rectos y vértices en ángulo vivo.</dd>
+    <dt>Geometría</dt><dd>La N funciona como estructura portante y comparte eje con una B de dos módulos. El monograma recuerda columna, vano y estructura sin dibujar un edificio.</dd>
+    <dt>Uso independiente</dt><dd>Favicon, sello de documentos, marca de agua en fotografías (marfil, esquina inferior derecha), cierre de presentaciones.</dd>
+    <dt>Color</dt><dd>Siempre un solo color plano. Nunca degradado, contorno ni relleno parcial.</dd>
+  </dl>
+  </div>
+</div></section>
+
+<!-- 05 LOGO COMPLETO -->
+<section class="pg alt" id="p05"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>05 / 15</span></div>
+  <h2>Logo completo</h2>
+  <p class="obj"><b>Objetivo.</b> Definir las dos composiciones del logo y sus proporciones. El logo principal es la versión horizontal. La vertical se usa cuando el espacio es cuadrado o estrecho.</p>
+  <div class="g2">
+    <div>
+      <div class="stage s-w" style="min-height:280px"><span class="lh" style="--fs:20px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div>
+      <p class="cap"><b>Horizontal (principal).</b> Web, documentos, firmas, presentaciones.</p>
+    </div>
+    <div>
+      <div class="stage s-w" style="min-height:280px"><span class="lv" style="--fs:16px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div>
+      <p class="cap"><b>Vertical.</b> Portadas, cartelería, espacios cuadrados, sellos.</p>
+    </div>
+  </div>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Texto del logo</dt><dd>NB DEVELOPMENTS en mayúsculas. Archivo SemiBold (600). Tracking +140 (0,14 em).</dd>
+    <dt>Proporción horizontal</dt><dd>Altura del isotipo = 2,6 × tamaño del texto. Separación isotipo–texto = ½ altura del isotipo. Isotipo y texto centrados verticalmente.</dd>
+    <dt>Proporción vertical</dt><dd>Altura del isotipo = 4 × tamaño del texto. Separación isotipo–texto = 1,4 × tamaño del texto. Eje central común.</dd>
+    <dt>Color</dt><dd>Isotipo y texto siempre del mismo color.</dd>
+  </dl></div>
+</div></section>
+
+<!-- 06 VERSIONES -->
+<section class="pg" id="p06"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>06 / 15</span></div>
+  <h2>Versiones del logo</h2>
+  <p class="obj"><b>Objetivo.</b> Establecer qué versión usar según el fondo. Regla general: <b>Mineral Olive sobre claro, marfil sobre Mineral Olive.</b></p>
+  <div class="g3">
+    <div><div class="stage s-o" style="min-height:170px"><span class="lh" style="--fs:12px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Positivo.</b> Mineral Olive #2F3730 sobre base o secondary. Versión por defecto.</p></div>
+    <div><div class="stage s-b" style="min-height:170px"><span class="lh" style="--fs:12px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Negativo.</b> Marfil sobre Mineral Olive. Portadas, hero, cierre de presentaciones.</p></div>
+    <div><div class="stage s-b" style="min-height:170px"><span class="lh" style="--fs:12px;color:#F8F5EE"><svg class="mk" viewBox="0 0 120 100" style="color:#A77945"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Negativo con acento.</b> Isotipo bronze y texto marfil, solo sobre Mineral Olive. Uso restringido a portadas.</p></div>
+    <div><div class="stage s-w" style="min-height:170px;color:#232722"><span class="lh" style="--fs:12px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Monocromo negro.</b> #232722. Fax, sellos, grabados, impresión en blanco y negro.</p></div>
+    <div><div class="stage s-o" style="min-height:170px"><span class="lv" style="--fs:10px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Vertical positivo y negativo.</b> Mismas reglas de color que el horizontal.</p></div>
+    <div><div class="stage s-b" style="min-height:170px"><span class="lv" style="--fs:10px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Vertical negativo.</b> Sobre Mineral Olive.</p></div>
+  </div>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Fondos permitidos</dt><dd>Base, secondary, cover (positivo). Mineral Olive (negativo). Fotografía solo con panel sólido detrás del logo.</dd>
+  </dl></div>
+</div></section>
+
+<!-- 07 USOS INCORRECTOS -->
+<section class="pg alt" id="p07"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>07 / 15</span></div>
+  <h2>Usos incorrectos</h2>
+  <p class="obj"><b>Objetivo.</b> Evitar las alteraciones más frecuentes. Si una pieza requiere algo que esta lista prohíbe, se cambia la pieza, no el logo.</p>
+  <div class="g4">
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;transform:scaleX(1.45)"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Deformar</b> o estirar.</p></div>
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;transform:rotate(-12deg)"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Rotar</b> o inclinar.</p></div>
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;color:#2F6DB5"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Usar colores</b> fuera de la paleta.</p></div>
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;filter:drop-shadow(3px 4px 3px rgba(0,0,0,.45))"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Sombras</b> o efectos.</p></div>
+    <div><div class="stage s-w" style="min-height:150px"><span class="lh" style="--fs:9px;color:#A77945"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Bronze sobre claro:</b> contraste insuficiente.</p></div>
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;font-family:Georgia,serif;font-weight:400;letter-spacing:.02em"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB Developments</span></div><p class="cap"><b>✕ Cambiar la tipografía</b> o las mayúsculas.</p></div>
+    <div><div class="stage" style="min-height:150px;background:#5A6358;color:#2F3730"><span class="lh" style="--fs:9px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Fondos</b> de bajo contraste.</p></div>
+    <div><div class="stage s-o" style="min-height:150px"><span class="lh" style="--fs:9px;border:2px solid #2F3730;padding:14px 18px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>✕ Enmarcar</b> o añadir elementos.</p></div>
+  </div>
+  <div class="spec"><h4>Además, nunca</h4>
+  <ul class="no" style="margin:0;font-size:14px"><li>Separar el isotipo del texto dentro del logo completo, ni cambiar su tamaño relativo.</li><li>Reproducir el logo con degradados, texturas, relieves simulados o transparencias.</li><li>Colocarlo sobre fotografías sin un panel sólido de color detrás.</li><li>Usar el isotipo como patrón de fondo o elemento decorativo repetido.</li></ul></div>
+</div></section>
+
+<!-- 08 PALETA -->
+<section class="pg" id="p08"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>08 / 15</span></div>
+  <h2>Paleta cromática</h2>
+  <p class="obj"><b>Objetivo.</b> Fijar siete colores planos: uno institucional, uno de acento y cinco neutros. No existen tintas, degradados ni versiones aclaradas u oscurecidas.</p>
+  <div class="g2">
+    <div class="sw"><div class="c" style="background:#2F3730;color:#F8F5EE;height:200px">Mineral Olive</div>
+    <div class="t"><b>#2F3730</b> · RGB 47, 55, 48<br>Color institucional. Fondos de portada, titulares, botones, logo positivo, tablas.</div></div>
+    <div class="sw"><div class="c" style="background:#A77945;color:#1F251F;height:200px">Muted Bronze</div>
+    <div class="t"><b>#A77945</b> · RGB 167, 121, 69<br>Acento. Botón principal y cifra destacada sobre Mineral Olive, etiquetas sobre olive. Nunca como texto sobre claro.</div></div>
+  </div>
+  <div class="g5">
+    <div class="sw"><div class="c" style="background:#F8F5EE;color:#2F3730">Cover</div><div class="t"><b>#F8F5EE</b><br>Fondo principal de web y documentos. Superficies.</div></div>
+    <div class="sw"><div class="c" style="background:#F5F1E8;color:#2F3730">Base</div><div class="t"><b>#F5F1E8</b><br>Secciones alternas, paneles, bloques de datos.</div></div>
+    <div class="sw"><div class="c" style="background:#E9E3D7;color:#2F3730">Secondary</div><div class="t"><b>#E9E3D7</b><br>Cabeceras de tabla ligeras, filas de totales, placeholders. Reemplaza líneas divisorias.</div></div>
+    <div class="sw"><div class="c" style="background:#6D716B;color:#F8F5EE">Gris medio</div><div class="t"><b>#6D716B</b><br>Texto secundario, captions, metadatos. Solo sobre fondos claros.</div></div>
+    <div class="sw"><div class="c" style="background:#232722;color:#F8F5EE">Texto</div><div class="t"><b>#232722</b><br>Texto de cuerpo. Versión negra del logo.</div></div>
+  </div>
+</div></section>
+
+<!-- 09 PROPORCIÓN Y FONDOS -->
+<section class="pg alt" id="p09"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>09 / 15</span></div>
+  <h2>Proporción y fondos</h2>
+  <p class="obj"><b>Objetivo.</b> Mantener el equilibrio visual de todas las piezas y garantizar contraste legible.</p>
+  <div class="bar"><div style="width:45%;background:#F8F5EE;color:#2F3730;box-shadow:inset 0 0 0 1px rgba(47,55,48,.12)">Cover 45%</div><div style="width:25%;background:#E9E3D7;color:#2F3730">Base y secondary 25%</div><div style="width:25%;background:#2F3730;color:#F8F5EE">Mineral Olive 25%</div><div style="width:5%;background:#A77945;color:#1F251F;padding-left:6px">5%</div></div>
+  <p class="cap" style="margin-bottom:40px">70% neutros · 25% Mineral Olive · 5% acento. Medido sobre la superficie total de la pieza o pantalla.</p>
+  <h4>Combinaciones autorizadas</h4>
+  <div class="g4">
+    <div class="stage" style="min-height:120px;background:#F8F5EE;color:#2F3730;font-weight:700">Olive sobre cover</div>
+    <div class="stage" style="min-height:120px;background:#F5F1E8;color:#232722;font-weight:600">Texto sobre base</div>
+    <div class="stage" style="min-height:120px;background:#2F3730;color:#F8F5EE;font-weight:700">Marfil sobre olive</div>
+    <div class="stage" style="min-height:120px;background:#2F3730;color:#A77945;font-weight:700">Bronze sobre olive</div>
+  </div>
+  <div class="g4">
+    <div class="stage" style="min-height:120px;background:#A77945;color:#1F251F;font-weight:700">Olive sobre bronze (botón)</div>
+    <div class="stage" style="min-height:120px;background:#F8F5EE;color:#6D716B;font-weight:600;box-shadow:inset 0 0 0 1px rgba(47,55,48,.12)">Gris medio sobre cover</div>
+    <div class="stage" style="min-height:120px;background:#E9E3D7;color:#2F3730;font-weight:700">Olive sobre secondary</div>
+    <div class="stage" style="min-height:120px;background:#F8F5EE;color:#A77945;font-weight:700;box-shadow:inset 0 0 0 1px rgba(47,55,48,.12)">✕ Bronze sobre claro</div>
+  </div>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <div class="tbw" style="margin:0"><table class="tb">
+    <tr><th>Combinación</th><th>Contraste aprox.</th><th>Uso</th></tr>
+    <tr><td>Texto sobre cover / base</td><td>Alto</td><td>Cuerpo de texto</td></tr>
+    <tr><td>Mineral Olive sobre cover / base</td><td>Alto</td><td>Titulares, botones, logo</td></tr>
+    <tr><td>Marfil sobre Mineral Olive</td><td>Alto</td><td>Portadas, hero, tablas</td></tr>
+    <tr><td>Bronze sobre olive y viceversa</td><td>Suficiente</td><td>Acento, botón CTA</td></tr>
+    <tr><td>Gris medio sobre cover / base</td><td>Suficiente</td><td>Captions y metadatos</td></tr>
+    <tr><td>Bronze sobre claro · claro sobre bronze</td><td>Insuficiente</td><td>No permitido para texto</td></tr>
+  </table></div>
+  <p style="font-size:14px;margin:16px 0 0"><b style="color:var(--fg)">Regla de acento:</b> como máximo un elemento en bronze por pantalla, página o diapositiva.</p></div>
+</div></section>
+
+<!-- 10 TIPOGRAFÍA -->
+<section class="pg" id="p10"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>10 / 15</span></div>
+  <h2>Tipografía</h2>
+  <p class="obj"><b>Objetivo.</b> Definir el sistema tipográfico de la marca. <b>Recomendación: Archivo para titulares y Source Sans 3 para el cuerpo.</b> El par simplifica la implementación en web, Slides, PowerPoint, Canva y Word, y refuerza la coherencia.</p>
+  <div class="g2">
+    <div class="stage s-w" style="min-height:300px;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px">
+      <div style="font-family:var(--display);font-size:120px;font-weight:600;letter-spacing:-.04em;line-height:1">Aa</div>
+      <div style="font-family:var(--display);font-size:20px;font-weight:600">Archivo + Source Sans 3</div>
+      <div style="font-size:14px;color:#6D716B;font-weight:400">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz<br><span style="font-variant-numeric:tabular-nums">0123456789 · US$ 1.250.000 · 12,5 %</span></div>
+    </div>
+    <div>
+      <h3>Por qué este par</h3>
+      <ul class="l" style="font-size:15px">
+        <li>Archivo es geométrica y estable. Se lee arquitectónica, no de moda.</li>
+        <li>Source Sans 3 aporta alta legibilidad en texto, notas y tablas financieras.</li>
+        <li>Incluye cifras tabulares y rango completo de pesos, útil en documentos.</li>
+        <li>Están en Google Fonts y disponibles como fuentes estáticas y variables.</li>
+      </ul>
+      <h3>Por qué no las otras</h3>
+      <ul class="l" style="font-size:15px">
+        <li><b>Inter:</b> muy neutra, pero genérica. Con este par sería redundante.</li>
+        <li><b>DM Sans y Plus Jakarta Sans:</b> más redondeadas y amables, con aire de startup.</li>
+        <li><b>Lora:</b> la serif evoca tradición editorial y suma una familia sin necesidad.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="g4" style="margin-top:8px">
+    <div><div style="font-size:32px;font-weight:400">Aa</div><p class="cap" style="margin-top:0"><b>400 Regular</b> · cuerpo</p></div>
+    <div><div style="font-size:32px;font-weight:500">Aa</div><p class="cap" style="margin-top:0"><b>500 Medium</b> · captions</p></div>
+    <div><div style="font-family:var(--display);font-size:32px;font-weight:600">Aa</div><p class="cap" style="margin-top:0"><b>600 SemiBold</b> · H2, H3, cifras, wordmark</p></div>
+    <div><div style="font-family:var(--display);font-size:32px;font-weight:700">Aa</div><p class="cap" style="margin-top:0"><b>700 Bold</b> · H1, botones</p></div>
+  </div>
+</div></section>
+
+<!-- 11 FOTOGRAFÍA -->
+<section class="pg alt" id="p11"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>11 / 15</span></div>
+  <h2>Fotografía</h2>
+  <p class="obj"><b>Objetivo.</b> Usar fotografía como evidencia del trabajo y no como decoración. Dirección: <b>documental, sobria, luminosa.</b> Se prefieren imágenes reales de proyectos, obras y terrenos de NB Developments.</p>
+  <div class="g3">
+    <div><h3>Proyectos y exteriores</h3><p style="font-size:14px">Fachadas, accesos y volúmenes en luz natural, con líneas verticales rectas y composición limpia.</p></div>
+    <div><h3>Obra y detalle constructivo</h3><p style="font-size:14px">Estructura, encofrados, instalaciones y terminaciones. Muestran ejecución y control.</p></div>
+    <div><h3>Materiales</h3><p style="font-size:14px">Hormigón, madera, vidrio, metal y piedra en primer plano, con luz lateral.</p></div>
+    <div><h3>Terrenos</h3><p style="font-size:14px">Vistas amplias con contexto, límites y accesos. Sirven para explicar el potencial de la tierra.</p></div>
+    <div><h3>Florida en contexto</h3><p style="font-size:14px">Vegetación, calles residenciales y cielo real. Sin postales ni atardeceres dramáticos.</p></div>
+    <div><h3>Equipo trabajando</h3><p style="font-size:14px">Opcional. Personas reales en obra o reunión, sin poses ni miradas a cámara.</p></div>
+  </div>
+  <div class="g2">
+    <div><h4>Sí</h4><ul class="ok" style="font-size:14px"><li>Luz natural: primeras y últimas horas del día, o cielo cubierto luminoso.</li><li>Un solo sujeto, con aire alrededor.</li><li>Color natural, saturación −5 a −10 % como máximo.</li><li>Horizonte nivelado y verticales corregidas.</li><li>Fotos propias y actuales, con fecha y proyecto identificados.</li></ul></div>
+    <div><h4>No</h4><ul class="no" style="font-size:14px"><li>Fotografía de banco de imágenes reconocible.</li><li>Parejas sonrientes, apretones de mano, llaves, piscinas con modelos.</li><li>Skylines genéricos, HDR agresivo, filtros o viradas de color.</li><li>Sol duro del mediodía sin control de sombras.</li><li>Renders sin rotular como tales.</li></ul></div>
+  </div>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Texto sobre imagen</dt><dd>Nunca directamente sobre la foto. Usar un panel sólido Mineral Olive con texto marfil, o ubicar el texto fuera de la imagen. No usar velos ni degradados.</dd>
+    <dt>Pie de foto</dt><dd>Formato: Nombre del proyecto · Ciudad, FL · Año. Estilo caption, gris medio.</dd>
+    <dt>Renders</dt><dd>Solo si aún no hay obra. Rotular “Render ilustrativo” y reemplazar por foto real al avanzar el proyecto.</dd>
+    <dt>Marca de agua</dt><dd>Opcional: isotipo marfil en esquina inferior derecha, 5 % del ancho de la imagen.</dd>
+    <dt>Formatos</dt><dd>Web: lado largo 2400 px, WebP o JPG calidad 80, con texto alternativo descriptivo. Impresión: 300 dpi.</dd>
+  </dl></div>
+</div></section>
+
+<!-- 12 WEBSITE -->
+<section class="pg" id="p12"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>12 / 15</span></div>
+  <h2>Website</h2>
+  <p class="obj"><b>Objetivo.</b> Mostrar cómo se compone una página con los recursos del sistema: fondos planos, tipografía, un botón, una fotografía real y espacio.</p>
+  <div class="cq" style="background:#F8F5EE;border:1px solid var(--sf);overflow:hidden;color:#2F3730;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:2cqw 4cqw">
+      <span class="lh" style="--fs:1.15cqw"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span>
+      <span style="font-size:1.1cqw;font-weight:500;color:#232722;display:flex;gap:2.4cqw"><span>Compañía</span><span>Modelo de negocio</span><span>Inversiones</span><span>Proyectos</span><span>Contacto</span></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:4cqw;padding:4cqw;align-items:center">
+      <div>
+        <div style="font-size:1cqw;font-weight:700;letter-spacing:.14em;color:#6D716B;margin-bottom:1.6cqw">INVERSIÓN Y DESARROLLO · FLORIDA</div>
+        <div style="font-family:var(--display);font-size:4cqw;font-weight:600;letter-spacing:-.02em;line-height:1.08;margin-bottom:1.6cqw">Invertir en Florida con claridad.</div>
+        <div style="font-size:1.4cqw;line-height:1.55;color:#232722;margin-bottom:2.4cqw;max-width:34cqw">Seleccionamos tierra, gestionamos permisos, construimos y comercializamos. Cada proyecto se presenta con plazos, costos y retornos esperados.</div>
+        <span class="btn p" style="font-size:1cqw;padding:1.4cqw 2.4cqw">Solicitar información</span>
+      </div>
+      <div class="ph" style="aspect-ratio:4/3;font-size:1.1cqw">Fotografía real de proyecto o terreno</div>
+    </div>
+    <div style="background:#E9E3D7;display:grid;grid-template-columns:repeat(3,1fr);gap:3cqw;padding:3.5cqw 4cqw">
+      <div><div style="font-family:var(--display);font-size:3.4cqw;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums">00</div><div style="font-size:1cqw;font-weight:500;color:#6D716B">Proyectos (dato de ejemplo)</div></div>
+      <div><div style="font-family:var(--display);font-size:3.4cqw;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums">00</div><div style="font-size:1cqw;font-weight:500;color:#6D716B">Unidades (dato de ejemplo)</div></div>
+      <div><div style="font-family:var(--display);font-size:3.4cqw;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums">00 m</div><div style="font-size:1cqw;font-weight:500;color:#6D716B">Plazo medio (dato de ejemplo)</div></div>
+    </div>
+    <div style="background:#2F3730;color:#F8F5EE;display:flex;justify-content:space-between;align-items:center;padding:4cqw">
+      <div style="font-family:var(--display);font-size:2.4cqw;font-weight:600;letter-spacing:-.01em;max-width:40cqw;line-height:1.2">Hablemos de su próximo proyecto en Florida.</div>
+      <span class="btn a" style="font-size:1cqw;padding:1.4cqw 2.4cqw">Agendar una llamada</span>
+    </div>
+  </div>
+  <p class="cap" style="margin-bottom:40px"><b>Página de inicio.</b> Encabezado claro, bloque de contenido, banda secondary de métricas y cierre Mineral Olive con un único botón bronze.</p>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Botones</dt><dd>Principal: Mineral Olive con texto marfil sobre fondos claros. Sobre olive: bronze con texto olive. Un solo botón principal por vista. Hover: sin cambio de color de acento; oscurecer con opacidad 90 %. Foco: contorno olive de 2 px.</dd>
+    <dt>Enlaces</dt><dd>Mineral Olive, subrayados. Sin bronze.</dd>
+    <dt>Navegación</dt><dd>Logo horizontal a la izquierda. Elementos en Source Sans 3 Medium, 14 a 16 px. Sin íconos.</dd>
+    <dt>Secciones</dt><dd>Alternar cover y base. Una banda Mineral Olive por página como máximo, normalmente el cierre.</dd>
+    <dt>Metadatos web</dt><dd>Favicon: isotipo olive sobre fondo claro. Descripción: usar la frase de posicionamiento (página 15).</dd>
+  </dl></div>
+</div></section>
+
+<!-- 13 TARJETA Y FIRMA -->
+<section class="pg alt" id="p13"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>13 / 15</span></div>
+  <h2>Tarjeta personal y firma de email</h2>
+  <p class="obj"><b>Objetivo.</b> Que cada contacto individual refuerce la marca con la misma sobriedad: dos colores, una tipografía y datos claros.</p>
+  <div class="g2">
+    <div><div class="cq" style="aspect-ratio:89/51;background:#2F3730;display:flex;align-items:center;justify-content:center;color:#F8F5EE"><span class="lh" style="--fs:3cqw"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div><p class="cap"><b>Frente.</b> Mineral Olive plano con logo negativo.</p></div>
+    <div><div class="cq" style="aspect-ratio:89/51;background:#F8F5EE;padding:6cqw;display:flex;flex-direction:column;justify-content:space-between;color:#2F3730;border:1px solid var(--sf)"><div><div style="font-family:var(--display);font-size:4.4cqw;font-weight:600;letter-spacing:-.01em">Nombre Apellido</div><div style="font-size:3cqw;color:#6D716B;font-weight:500">Cargo</div></div><div style="font-size:2.9cqw;line-height:1.6;color:#232722">+1 (305) 600-0676<br>nombre@nbdevelopments.com<br>nbdevelopments.com<br>4828 SW 183 Ave, Miramar, FL 33029</div></div><p class="cap"><b>Dorso.</b> Cover con datos en Source Sans 3.</p></div>
+  </div>
+  <div class="sig" style="max-width:560px;margin-bottom:12px">
+    <div style="font-size:15px;font-weight:700;color:#2F3730">Nombre Apellido</div>
+    <div style="color:#6D716B;margin-bottom:12px">Cargo · NB Developments</div>
+    <div>T +1 (305) 600-0676<br>nombre@nbdevelopments.com · nbdevelopments.com</div>
+    <div style="margin:16px 0;color:#2F3730"><span class="lh" style="--fs:8.5px"><svg class="mk" viewBox="0 0 120 100"><use href="#nb"/></svg>NB DEVELOPMENTS</span></div>
+    <div style="font-size:11px;color:#6D716B">4828 SW 183 Ave, Miramar, FL 33029</div>
+  </div>
+  <p class="cap"><b>Firma de email.</b> Nombre y cargo, datos, logo horizontal pequeño y dirección.</p>
+  <div class="spec"><h4>Especificaciones técnicas</h4>
+  <dl class="sp">
+    <dt>Tarjeta</dt><dd>89 × 51 mm. Papel mate blanco natural de 350 g. Mineral Olive plano en el frente. Nombre 9 pt en 600, cargo 7,5 pt en 500, datos 7,5 pt en 400. Sin laminado brillante, barniz ni foil.</dd>
+    <dt>Firma de email</dt><dd>Ancho máximo 560 px. Fuente: Source Sans 3 si el cliente de correo lo permite, con Arial como alternativa. Nombre 15 px en 700 olive. Cargo y aviso 11 a 13 px en gris medio. Datos 13 px en texto.</dd>
+    <dt>Logo en firma</dt><dd>Logo horizontal pequeño, con texto alternativo “NB Developments”. Sin banners ni fotos.</dd>
+    <dt>Orden de datos</dt><dd>Nombre, cargo, teléfono, email, sitio web, dirección.</dd>
+  </dl></div>
+</div></section>
+
+<!-- 14 TONO VERBAL -->
+<section class="pg" id="p14"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>14 / 15</span></div>
+  <h2>Tono verbal</h2>
+  <p class="obj"><b>Objetivo.</b> Que NB Developments suene como lo que es: una empresa que entiende el mercado, analiza oportunidades y ejecuta. Se comunica con datos, no con adjetivos.</p>
+  <div class="g3">
+    <div><h3>Claro</h3><p style="font-size:14px">Una idea por frase. Frases de hasta 25 palabras. Términos técnicos explicados la primera vez.</p></div>
+    <div><h3>Profesional</h3><p style="font-size:14px">Vocabulario preciso del sector. Sin coloquialismos ni diminutivos.</p></div>
+    <div><h3>Seguro</h3><p style="font-size:14px">Afirma lo que sabe y lo respalda. No promete resultados.</p></div>
+    <div><h3>Directo</h3><p style="font-size:14px">Empieza por la conclusión. Sin rodeos ni introducciones largas.</p></div>
+    <div><h3>Transparente</h3><p style="font-size:14px">Nombra plazos, costos, supuestos y riesgos. Distingue dato de proyección.</p></div>
+    <div><h3>Institucional</h3><p style="font-size:14px">Tercera persona o “nosotros”. Trato de usted en comunicaciones formales.</p></div>
+  </div>
+  <h4>Evitar y preferir</h4>
+  <div class="tbw"><table class="tb">
+    <tr><th style="width:36%">Evitar</th><th>Preferir</th></tr>
+    <tr><td>Oportunidad única de inversión</td><td>Proyecto residencial de [00] unidades, con retorno objetivo de [00] % a [00] meses.</td></tr>
+    <tr><td>Lujo incomparable</td><td>Materiales y terminaciones detallados en la memoria del proyecto.</td></tr>
+    <tr><td>El mejor lugar para invertir en Florida</td><td>Seleccionamos terrenos según zonificación, demanda y costo de desarrollo.</td></tr>
+    <tr><td>Estamos comprometidos con los más altos estándares</td><td>Cada proyecto se ejecuta con presupuesto y cronograma definidos, y con reportes periódicos.</td></tr>
+    <tr><td>Proyectos únicos</td><td>Proyectos diseñados para el mercado al que se dirigen.</td></tr>
+  </table></div>
+  <div class="spec"><h4>Reglas de redacción</h4>
+  <dl class="sp">
+    <dt>Idioma</dt><dd>Español neutro para comunicaciones institucionales. Sin voseo. Versión en inglés para documentos dirigidos a inversores en EE. UU.</dd>
+    <dt>Verbos preferidos</dt><dd>Analizamos, adquirimos, gestionamos, construimos, comercializamos, informamos.</dd>
+    <dt>Palabras a evitar</dt><dd>Único, exclusivo, incomparable, soñado, ideal, imperdible, el mejor, líder, garantizado.</dd>
+    <dt>Cifras</dt><dd>Siempre con unidad, fecha y fuente. Proyecciones rotuladas como tales.</dd>
+    <dt>Llamados a la acción</dt><dd>Solicitar información · Agendar una llamada · Ver proyecto · Descargar resumen.</dd>
+  </dl></div>
+</div></section>
+
+<!-- 15 POSICIONAMIENTO Y TEXTOS -->
+<section class="pg alt" id="p15"><div class="in">
+  <div class="meta"><span>NB Developments · Manual de Marca</span><span>15 / 15</span></div>
+  <h2>Posicionamiento, taglines y textos modelo</h2>
+  <p class="obj"><b>Objetivo.</b> Dar textos base listos para usar y adaptar. Los datos entre corchetes deben completarse con información verificada de cada proyecto.</p>
+  <h4>Frase de posicionamiento</h4>
+  <div class="stage s-b" style="min-height:0;padding:40px;justify-content:flex-start;margin-bottom:32px"><div style="font-family:var(--display);font-size:clamp(20px,2.6vw,28px);font-weight:600;letter-spacing:-.01em;line-height:1.35;max-width:32em">NB Developments identifica tierras con potencial, desarrolla proyectos residenciales en Florida y estructura cada inversión con criterio, transparencia y ejecución propia de principio a fin.</div></div>
+  <h4>Tres alternativas de tagline</h4>
+  <div class="g3">
+    <div><h3>Invertir en Florida con claridad.</h3><p class="cap" style="margin-top:0">EN: Invest in Florida, clearly. <b>Recomendada:</b> resume transparencia, simplicidad y el mercado donde opera.</p></div>
+    <div><h3>Capital con criterio.</h3><p class="cap" style="margin-top:0">EN: Capital with discipline. Más corporativa, apta para presentaciones y documentos financieros.</p></div>
+    <div><h3>De la tierra al proyecto terminado.</h3><p class="cap" style="margin-top:0">EN: From land to finished project. Describe el modelo integral de punta a punta.</p></div>
+  </div>
+  <div class="g2">
+    <div><h4>Texto institucional corto</h4>
+    <p>NB Developments es una compañía de inversión y desarrollo inmobiliario con operaciones en Florida, Estados Unidos. Seleccionamos terrenos con potencial, gestionamos zonificación y permisos, construimos y comercializamos viviendas uni y multifamiliares. Estructuramos cada proyecto en función de su mercado y acompañamos a inversores locales y extranjeros en cada etapa, con información clara sobre plazos, costos y retornos esperados.</p></div>
+    <div><h4>Ejemplo de presentación de proyecto</h4>
+    <div style="background:var(--bg);padding:24px;border:1px solid var(--sf);font-size:14.5px;line-height:1.6">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--mut);margin-bottom:6px">PROYECTO RESIDENCIAL · [CIUDAD], FLORIDA</div>
+      <div style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--fg);letter-spacing:-.01em;margin-bottom:10px">[Nombre del proyecto]</div>
+      <p>Desarrollo multifamiliar de [00] unidades sobre un terreno de [0,0] acres con zonificación [tipo]. Los permisos se encuentran [en trámite / aprobados].</p>
+      <p><b style="color:var(--fg)">Por qué este terreno.</b> [Ubicación, demanda del mercado y costo de desarrollo, en una frase cada uno.]</p>
+      <p><b style="color:var(--fg)">Cronograma.</b> Inicio de obra en [mes, año]. Plazo estimado: [00] meses. Estrategia de salida: [venta / alquiler].</p>
+      <p style="margin:0"><b style="color:var(--fg)">Riesgos principales.</b> [Permisos, costos de construcción, absorción del mercado] y cómo se gestionan.</p>
+    </div></div>
+  </div>
+  <div class="spec"><h4>Nota de uso</h4><p style="margin:0;font-size:14px">Los taglines son propuestas. Validar con el equipo legal que ninguna frase implique garantía de retorno y comprobar disponibilidad de uso antes de registrar cualquier lema.</p></div>
+</div></section>
+
+</body>
+</html>

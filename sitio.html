@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NB Developments — Invertir en Florida con claridad</title>
+<meta name="description" content="NB Developments identifica tierras con potencial, desarrolla proyectos residenciales en Florida y estructura cada inversión con criterio y transparencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-primary:#16333B; --color-accent:#C59A67;
+  --color-bg:#FFFFFF; --color-bg-alt:#F6F4EF; --color-border:#E4E2DD;
+  --color-text:#1B1F21; --color-text-muted:#666D70;
+  --font-heading:'Manrope',Arial,sans-serif; --font-body:'Manrope',Arial,sans-serif;
+  --space-xs:8px; --space-sm:16px; --space-md:24px; --space-lg:48px; --space-xl:96px;
+  --radius:2px; --container-width:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--color-bg:#0F1B1F;--color-bg-alt:#132428;--color-border:#1E3238;--color-text:#F0EEE9;--color-text-muted:#9BA7AA;}}
+:root[data-theme="dark"]{--color-bg:#0F1B1F;--color-bg-alt:#132428;--color-border:#1E3238;--color-text:#F0EEE9;--color-text-muted:#9BA7AA;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);color:var(--color-text);background:var(--color-bg);line-height:1.6;overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--container-width);margin:0 auto;padding:0 var(--space-md)}
+@media(max-width:640px){.container{padding:0 var(--space-sm)}}
+h1,h2,h3{font-family:var(--font-heading);color:var(--color-primary);letter-spacing:-0.01em;line-height:1.12}
+h1{font-size:clamp(38px,6vw,72px);font-weight:700;letter-spacing:-0.02em}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700}
+h3{font-size:20px;font-weight:600}
+p{color:var(--color-text);max-width:62ch}
+.muted{color:var(--color-text-muted)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted)}
+.section{padding:var(--space-xl) 0}
+@media(max-width:768px){.section{padding:64px 0}}
+.section.alt{background:var(--color-bg-alt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:16px 30px;border-radius:var(--radius);border:1px solid transparent;cursor:pointer;transition:opacity .2s ease,transform .2s ease}
+.btn:hover{opacity:.88}
+.btn-primary{background:var(--color-primary);color:#fff}
+.btn-accent{background:var(--color-accent);color:var(--color-primary)}
+.btn-ghost{background:transparent;color:var(--color-primary);border-color:var(--color-primary)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.isotipo{color:var(--color-primary)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* HEADER */
+header.site{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background .35s ease,padding .35s ease,box-shadow .35s ease;
+  padding-top:calc(22px + env(safe-area-inset-top,0px))}
+header.site.solid{background:rgba(255,255,255,.94);backdrop-filter:saturate(140%) blur(6px);box-shadow:0 1px 0 var(--color-border);padding:14px 0;padding-top:calc(14px + env(safe-area-inset-top,0px))}
+header .bar{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-heading);font-weight:700;font-size:14px;letter-spacing:.16em;color:#fff;transition:color .35s ease}
+header.site.solid .brand{color:var(--color-primary)}
+.brand svg{width:26px;height:auto}
+nav.main{display:flex;gap:36px}
+nav.main a{font-size:14px;font-weight:500;color:rgba(255,255,255,.86);transition:color .35s ease}
+header.site.solid nav.main a{color:var(--color-text)}
+nav.main a:hover{color:var(--color-accent)}
+.header-actions{display:flex;align-items:center;gap:20px}
+.burger{display:none;width:26px;height:18px;position:relative;background:none;border:0;cursor:pointer}
+.burger span{position:absolute;left:0;right:0;height:2px;background:#fff;transition:background .3s}
+header.site.solid .burger span{background:var(--color-primary)}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:8px}.burger span:nth-child(3){top:16px}
+@media(max-width:900px){nav.main{display:none}.burger{display:block}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--color-primary);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,51,59,.55),rgba(22,51,59,.86)),#1c3c45;background-size:cover}
+.hero-grid-line{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent calc((100% - 1180px)/2 + 1180px/12));pointer-events:none}
+.hero .container{position:relative;z-index:2;padding-top:120px}
+.hero-eyebrow{color:var(--color-accent);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
+.hero h1{color:#fff;max-width:16ch;margin-bottom:22px}
+.hero p.lead{color:rgba(255,255,255,.82);font-size:clamp(16px,1.6vw,20px);max-width:46ch;margin-bottom:36px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:80px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18);padding-top:28px;max-width:640px;gap:24px}
+.hero-stats div b{display:block;font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:600;font-variant-numeric:tabular-nums}
+.hero-stats div span{font-size:13px;color:rgba(255,255,255,.7)}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:12px;letter-spacing:.1em;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue i{width:1px;height:34px;background:rgba(255,255,255,.4);display:block;animation:cue 1.8s ease infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* PRESENTATION */
+.present{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+@media(max-width:860px){.present{grid-template-columns:1fr}}
+
+/* PROJECTS */
+.proj-list{display:flex;flex-direction:column}
+.proj-row{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;padding:56px 0;border-top:1px solid var(--color-border)}
+.proj-row:last-child{border-bottom:1px solid var(--color-border)}
+.proj-row:nth-child(even){grid-template-columns:1fr 1.1fr}
+.proj-row:nth-child(even) .proj-media{order:2}
+@media(max-width:860px){.proj-row,.proj-row:nth-child(even){grid-template-columns:1fr}.proj-row:nth-child(even) .proj-media{order:0}}
+.proj-media{aspect-ratio:4/3;background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);font-size:13px;position:relative;overflow:hidden}
+.proj-media span.tag{position:absolute;top:16px;left:16px;background:var(--color-primary);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius)}
+.proj-meta{display:flex;gap:20px;margin:16px 0 18px;font-size:13px;color:var(--color-text-muted)}
+.proj-meta b{color:var(--color-primary)}
+.proj-link{font-size:14px;font-weight:700;color:var(--color-primary);display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--color-primary);padding-bottom:2px}
+
+/* DIFFERENTIALS */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
+.diff-item{background:var(--color-bg);padding:44px 36px}
+.diff-item .num{font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--color-accent);margin-bottom:20px;letter-spacing:.04em}
+@media(max-width:860px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.diff-grid{grid-template-columns:1fr}}
+
+/* FEATURED PROJECT */
+.feature{position:relative;background:var(--color-primary);color:#fff;overflow:hidden}
+.feature-media{aspect-ratio:16/9;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.35)),#1f434d;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:13px}
+.feature-panel{padding:56px 64px}
+@media(max-width:640px){.feature-panel{padding:40px 24px}}
+.feature-data{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 40px;border-top:1px solid rgba(255,255,255,.18);padding-top:28px}
+@media(max-width:700px){.feature-data{grid-template-columns:repeat(2,1fr)}}
+.feature-data div span{display:block;font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em}
+.feature-data div b{font-family:var(--font-heading);font-size:20px;font-weight:600}
+
+/* PROCESS */
+.process{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--color-border)}
+.process .step{padding:32px 20px 0;border-left:1px solid var(--color-border)}
+.process .step:first-child{border-left:none}
+.process .step .num{font-family:var(--font-heading);font-weight:700;font-size:15px;color:var(--color-accent);margin-bottom:14px}
+@media(max-width:900px){.process{grid-template-columns:repeat(3,1fr)}.process .step:nth-child(3n+1){border-left:none}}
+@media(max-width:560px){.process{grid-template-columns:1fr 1fr}.process .step:nth-child(odd){border-left:none}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about-media{aspect-ratio:1/1;background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);font-size:13px}
+
+/* CTA FINAL */
+.cta-final{background:var(--color-primary);color:#fff;text-align:center;padding:var(--space-xl) 0}
+.cta-final h2{color:#fff;max-width:20ch;margin:0 auto 24px}
+.cta-final p{color:rgba(255,255,255,.78);margin:0 auto 36px;max-width:52ch}
+.cta-final .ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+/* FOOTER */
+footer.site{background:var(--color-bg-alt);padding:64px 0 32px;border-top:1px solid var(--color-border)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.footer-grid h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:16px}
+.footer-grid a{display:block;font-size:14px;color:var(--color-text);margin-bottom:10px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--color-border);font-size:13px;color:var(--color-text-muted);flex-wrap:wrap;gap:12px}
+.badge{display:inline-block;background:var(--color-primary);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:6px 10px;border-radius:var(--radius);margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="nb" viewBox="0 0 112 100">
+    <g fill="currentColor"><rect x="5" y="5" width="10" height="90"/><rect x="45" y="5" width="10" height="90"/><polygon points="5,5 15,5 55,95 45,95"/></g>
+    <g fill="none" stroke="currentColor" stroke-width="10"><path d="M50 10H78A20 20 0 0 1 78 50H50"/><path d="M50 50H82A20 20 0 0 1 82 90H50"/></g>
+  </symbol>
+</svg>
+
+<span class="badge" style="position:fixed;top:12px;left:12px;z-index:200;opacity:.85">MOCKUP · OPCIÓN A — Institucional</span>
+
+<header class="site" id="siteHeader">
+  <div class="container bar">
+    <a href="#" class="brand"><svg viewBox="0 0 112 100"><use href="#nb"/></svg>NB DEVELOPMENTS</a>
+    <nav class="main">
+      <a href="#compania">Compañía</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#contacto" class="btn btn-ghost-light" style="padding:12px 22px;font-size:12px">Hablar con nosotros</a>
+      <button class="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-line"></div>
+  <div class="container">
+    <div class="hero-eyebrow">Inversión y desarrollo inmobiliario · Florida</div>
+    <h1>Invertir en Florida con claridad.</h1>
+    <p class="lead">Seleccionamos tierra, gestionamos permisos, construimos y comercializamos. Cada proyecto se presenta con plazos, costos y retornos esperados desde el primer día.</p>
+    <div class="hero-ctas">
+      <a href="#proyectos" class="btn btn-accent">Ver proyectos</a>
+      <a href="#contacto" class="btn btn-ghost-light">Agendar una llamada</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>12</b><span>Proyectos ejecutados <em style="font-style:normal;color:rgba(255,255,255,.4)">(dato de ejemplo)</em></span></div>
+      <div><b>1.400+</b><span>Unidades desarrolladas (ejemplo)</span></div>
+      <div><b>8 años</b><span>De operación en Florida (ejemplo)</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL<i></i></div>
+</section>
+
+<section class="section" id="compania">
+  <div class="container present reveal">
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px">Quiénes somos</div>
+      <h2>Una compañía que ejecuta de punta a punta.</h2>
+    </div>
+    <div>
+      <p style="font-size:18px;margin-bottom:20px">NB Developments es una compañía de inversión y desarrollo inmobiliario con operaciones en Florida. Identificamos tierra con potencial, gestionamos zonificación y permisos, construimos y comercializamos.</p>
+      <p class="muted">A diferencia de una inmobiliaria tradicional, participamos en cada etapa del proyecto: desde la compra del terreno hasta la entrega al inversor. Eso nos permite controlar plazos, costos y calidad de principio a fin, y compartir esa información con quienes invierten junto a nosotros.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="proyectos">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin-bottom:56px">
+      <div class="eyebrow" style="margin-bottom:16px">Proyectos</div>
+      <h2>Desarrollos en distintas etapas, mismo estándar.</h2>
+    </div>
+    <div class="proj-list">
+      <div class="proj-row reveal">
+        <div class="proj-media"><span class="tag">En construcción</span>Fotografía real del proyecto</div>
+        <div>
+          <h3>Residencial Cypress Row</h3>
+          <div class="proj-meta"><span><b>Davie, FL</b></span><span>48 unidades</span><span>Multifamiliar</span></div>
+          <p class="muted" style="margin-bottom:20px">Desarrollo multifamiliar sobre un terreno de 2,1 acres con zonificación aprobada. Obra en ejecución, entrega estimada 2027.</p>
+          <a href="#" class="proj-link">Ver ficha del proyecto →</a>
+        </div>
+      </div>
+      <div class="proj-row reveal">
+        <div class="proj-media"><span class="tag">Permisos en trámite</span>Fotografía real del terreno</div>
+        <div>
+          <h3>Terreno Pembroke Pines</h3>
+          <div class="proj-meta"><span><b>Pembroke Pines, FL</b></span><span>3,4 acres</span><span>Uso mixto</span></div>
+          <p class="muted" style="margin-bottom:20px">Adquisición de tierra con potencial de rezonificación para uso mixto. Estudio de factibilidad y gestión de permisos en curso.</p>
+          <a href="#" class="proj-link">Ver ficha del proyecto →</a>
+        </div>
+      </div>
+      <div class="proj-row reveal">
+        <div class="proj-media"><span class="tag">Comercializado</span>Fotografía real del proyecto terminado</div>
+        <div>
+          <h3>Residencias Coral Terrace</h3>
+          <div class="proj-meta"><span><b>Miramar, FL</b></span><span>36 unidades</span><span>Unifamiliar</span></div>
+          <p class="muted" style="margin-bottom:20px">Proyecto entregado y comercializado en su totalidad. Caso de referencia sobre plazos y retorno para inversores.</p>
+          <a href="#" class="proj-link">Ver caso de estudio →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin-bottom:8px">
+      <div class="eyebrow" style="margin-bottom:16px">Por qué NB Developments</div>
+      <h2>Cinco razones concretas.</h2>
+    </div>
+  </div>
+  <div class="container reveal">
+    <div class="diff-grid">
+      <div class="diff-item"><div class="num">01</div><h3>Ejecución propia</h3><p class="muted">Gestionamos tierra, permisos y obra con equipo propio, sin depender de terceros para las etapas críticas.</p></div>
+      <div class="diff-item"><div class="num">02</div><h3>Información verificable</h3><p class="muted">Cada inversor recibe reportes periódicos de avance, costos y cronograma, no solo al cierre del proyecto.</p></div>
+      <div class="diff-item"><div class="num">03</div><h3>Foco en Florida</h3><p class="muted">Conocemos la zonificación, los tiempos de permisos y la demanda de los mercados donde operamos.</p></div>
+      <div class="diff-item"><div class="num">04</div><h3>Estructura clara</h3><p class="muted">Cada oportunidad se presenta con supuestos explícitos: plazos, costos y retorno objetivo.</p></div>
+      <div class="diff-item"><div class="num">05</div><h3>Trayectoria comprobable</h3><p class="muted">Proyectos entregados y comercializados que pueden revisarse como caso de estudio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="feature" id="destacado">
+  <div class="feature-media reveal">Fotografía real del proyecto destacado</div>
+  <div class="container feature-panel reveal">
+    <div class="eyebrow" style="color:var(--color-accent);margin-bottom:16px">Proyecto destacado</div>
+    <h2 style="color:#fff;max-width:18ch;margin-bottom:20px">Residencial Cypress Row</h2>
+    <p style="color:rgba(255,255,255,.8);max-width:56ch;margin-bottom:8px">Desarrollo multifamiliar de 48 unidades en Davie, Florida, sobre un terreno con zonificación multifamiliar ya aprobada. La obra se encuentra en ejecución con entrega estimada para 2027.</p>
+    <div class="feature-data">
+      <div><span>Ubicación</span><b>Davie, FL</b></div>
+      <div><span>Superficie</span><b>2,1 acres</b></div>
+      <div><span>Unidades</span><b>48</b></div>
+      <div><span>Estado</span><b>En obra</b></div>
+    </div>
+    <a href="#contacto" class="btn btn-accent">Solicitar información del proyecto</a>
+  </div>
+</section>
+
+<section class="section" id="proceso">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin-bottom:16px">
+      <div class="eyebrow" style="margin-bottom:16px">Cómo trabajamos</div>
+      <h2>Un proceso repetible, de la tierra al resultado.</h2>
+    </div>
+  </div>
+  <div class="container reveal">
+    <div class="process">
+      <div class="step"><div class="num">01</div><h3 style="font-size:16px">Nuevo proyecto</h3><p class="muted" style="font-size:14px">Definición del producto según el mercado objetivo.</p></div>
+      <div class="step"><div class="num">02</div><h3 style="font-size:16px">Suscripción</h3><p class="muted" style="font-size:14px">Inversores se incorporan al proyecto.</p></div>
+      <div class="step"><div class="num">03</div><h3 style="font-size:16px">Compra del terreno</h3><p class="muted" style="font-size:14px">Adquisición y gestión de permisos.</p></div>
+      <div class="step"><div class="num">04</div><h3 style="font-size:16px">Ejecución de obra</h3><p class="muted" style="font-size:14px">Construcción y gestión de obra.</p></div>
+      <div class="step"><div class="num">05</div><h3 style="font-size:16px">Comercialización</h3><p class="muted" style="font-size:14px">Venta o alquiler de las unidades.</p></div>
+      <div class="step"><div class="num">06</div><h3 style="font-size:16px">Distribución</h3><p class="muted" style="font-size:14px">Renta y capital para los inversores.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container about reveal">
+    <div class="about-media">Fotografía institucional del equipo u oficina</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px">Sobre NB Developments</div>
+      <h2 style="margin-bottom:20px">Un equipo que conoce el mercado de Florida.</h2>
+      <p class="muted" style="margin-bottom:16px">Operamos desde Miramar, Florida, con foco en desarrollos residenciales y de uso mixto. Trabajamos con inversores locales y extranjeros, acompañándolos con información clara en cada etapa.</p>
+      <a href="#contacto" class="btn btn-ghost">Conocer al equipo</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contacto">
+  <div class="container reveal">
+    <div class="eyebrow" style="color:var(--color-accent);margin-bottom:20px">Hablemos</div>
+    <h2>Cuéntenos sobre su próxima inversión en Florida.</h2>
+    <p>Respondemos en menos de 48 horas hábiles con información concreta sobre nuestros proyectos activos.</p>
+    <div class="ctas">
+      <a href="#" class="btn btn-accent">Agendar una llamada</a>
+      <a href="#" class="btn btn-ghost-light">Escribir por email</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="brand" style="color:var(--color-primary);margin-bottom:16px"><svg viewBox="0 0 112 100"><use href="#nb"/></svg>NB DEVELOPMENTS</a>
+        <p class="muted" style="font-size:14px;max-width:32ch">Inversión y desarrollo inmobiliario en Florida.</p>
+      </div>
+      <div><h4>Navegación</h4><a href="#compania">Compañía</a><a href="#proyectos">Proyectos</a><a href="#proceso">Cómo trabajamos</a><a href="#contacto">Contacto</a></div>
+      <div><h4>Contacto</h4><a href="#">info@nbdevelopments.com</a><a href="#">+1 (305) 600-0676</a><a href="#">Miramar, FL</a></div>
+      <div><h4>Síganos</h4><a href="#">Instagram</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NB Developments. Todos los derechos reservados.</span>
+      <span>Aviso legal · Política de privacidad</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var h=document.getElementById('siteHeader');
+  window.addEventListener('scroll',function(){h.classList.toggle('solid',window.scrollY>40)},{passive:true});
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
